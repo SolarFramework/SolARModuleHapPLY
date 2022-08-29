@@ -41,13 +41,16 @@ FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const std::s
         pointCloud->getAllPoints(points);
 
         std::vector<std::array<double, 3>> meshVertexPositions;
+        std::vector<std::array<double, 3>> meshVertexColors;
         for( const auto& p : points )
         {
-            meshVertexPositions.push_back( { static_cast<double>(p->x()), static_cast<double>(p->y()), static_cast<double>(p->z()) } );
+            meshVertexPositions.push_back( { p->x(), p->y(), p->z() } );
+            meshVertexColors.push_back( { p->getR(), p->getG(), p->getB() });
         }
 
         happly::PLYData plyOut;
         plyOut.addVertexPositions(meshVertexPositions);
+        plyOut.addVertexColors(meshVertexColors);
         plyOut.write(filepath, m_stringToHapplyDataFormat.at(m_dataFormat));
 
         return FrameworkReturnCode::_SUCCESS;

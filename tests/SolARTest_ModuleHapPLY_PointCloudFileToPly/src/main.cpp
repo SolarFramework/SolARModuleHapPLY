@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 	}
 
 	const SRef<PointCloud>& pointCloud = pointCloudManager->getConstPointCloud();
-    if ( pointCloudExporter->save(outputPlyFile, pointCloud) != FrameworkReturnCode::_SUCCESS)
+    if ( pointCloudExporter->exportPointCloud(outputPlyFile, pointCloud) != FrameworkReturnCode::_SUCCESS)
 	{
 		LOG_ERROR("Failed to export point cloud!");
 		return -1;

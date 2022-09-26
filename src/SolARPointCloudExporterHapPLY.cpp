@@ -33,7 +33,7 @@ SolARPointCloudExporterHapPLY::SolARPointCloudExporterHapPLY():xpcf::Configurabl
     declareProperty<std::string>("dataFormat" , m_dataFormat);
 }
 
-FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const std::string & filepath, const SRef<const SolAR::datastructure::PointCloud> & pointCloud)
+FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const std::string & filepath, const SRef<SolAR::datastructure::PointCloud> & pointCloud)
 {
     try
     {

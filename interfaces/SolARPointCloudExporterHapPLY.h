@@ -42,7 +42,7 @@ public:
     ~SolARPointCloudExporterHapPLY() override = default;
     void unloadComponent () override final;
 
-    FrameworkReturnCode exportPointCloud(const std::string & filepath, const SRef<const SolAR::datastructure::PointCloud> & pointCloud) override;
+    FrameworkReturnCode exportPointCloud(const std::string & filepath, const SRef<SolAR::datastructure::PointCloud> & pointCloud) override;
 
 private:
     std::string m_dataFormat = "Binary";

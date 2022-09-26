@@ -1,6 +1,8 @@
 QT       -= core gui
 CONFIG -= app_bundle qt
 
+QMAKE_PROJECT_DEPTH = 0
+
 TARGET = SolARModuleHapPLY
 FRAMEWORK = $${TARGET}
 INSTALLSUBDIR =  SolARBuild

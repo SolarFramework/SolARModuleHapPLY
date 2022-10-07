@@ -24,6 +24,22 @@
 
 #include <happly.h>
 
+/**
+ * @class SolARPointCloudExporterHapPLY
+ * @brief <B>Export a SolAR point cloud into a ply file</B>
+ * <TT>UUID: 4b5e0353-bc37-4bab-b0a3-89460e1752c6</TT>
+ *
+ * @SolARComponentPropertiesBegin
+ * @SolARComponentProperty{ dataFormat,
+ *                          the output format of the ply (either Binary, ASCII, or BinaryBigEndian)
+ *                          @SolARComponentPropertyDescString{ "Binary" }}
+ * @SolARComponentProperty{ path,
+ *                          the path and filename where the point cloud will be export,
+ *                          @SolARComponentPropertyDescString{ "pointcloud.ply" }}
+ * @SolARComponentPropertiesEnd
+ *
+ */
+
 namespace SolAR::MODULES::hapPLY
 {
 

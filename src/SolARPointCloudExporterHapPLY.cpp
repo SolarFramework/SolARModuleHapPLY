@@ -31,9 +31,10 @@ SolARPointCloudExporterHapPLY::SolARPointCloudExporterHapPLY():xpcf::Configurabl
 {
     declareInterface<api::output::files::IPointCloudExporter>(this);
     declareProperty<std::string>("dataFormat" , m_dataFormat);
+    declareProperty<std::string>("path" , m_path);
 }
 
-FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const std::string & filepath, const SRef<SolAR::datastructure::PointCloud> & pointCloud)
+FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const SRef<SolAR::datastructure::PointCloud> & pointCloud)
 {
     try
     {
@@ -51,7 +52,7 @@ FrameworkReturnCode SolARPointCloudExporterHapPLY::exportPointCloud(const std::s
         happly::PLYData plyOut;
         plyOut.addVertexPositions(meshVertexPositions);
         plyOut.addVertexColors(meshVertexColors);
-        plyOut.write(filepath, m_stringToHapplyDataFormat.at(m_dataFormat));
+        plyOut.write(m_path, m_stringToHapplyDataFormat.at(m_dataFormat));
 
         return FrameworkReturnCode::_SUCCESS;
     }

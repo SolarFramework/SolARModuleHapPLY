@@ -7,7 +7,7 @@ QMAKE_PROJECT_DEPTH = 0
 ## global defintions : target lib name, version
 TARGET = SolARTest_ModuleHapPLY_PointCloudFileToPly
 VERSION = 1.0.0
-PROJECTDEPLOYDIR = $${PWD}
+PROJECTDEPLOYDIR = $${PWD}/..
 
 DEFINES += MYVERSION=$${VERSION}
 CONFIG += c++1z

@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
     }
 
     string poincloudFile = string(argv[1]);
-    string outputPlyFile = "pointcloud.ply";
 
     string configxml = "SolARTest_ModuleHapPLY_PointCloudFileToPly_conf.xml";
 	if (xpcfComponentManager->load(configxml.c_str()) != org::bcom::xpcf::_SUCCESS)
@@ -78,13 +77,13 @@ int main(int argc, char *argv[])
 	}
 
 	const SRef<PointCloud>& pointCloud = pointCloudManager->getConstPointCloud();
-    if ( pointCloudExporter->exportPointCloud(outputPlyFile, pointCloud) != FrameworkReturnCode::_SUCCESS)
+    if ( pointCloudExporter->exportPointCloud(pointCloud) != FrameworkReturnCode::_SUCCESS)
 	{
 		LOG_ERROR("Failed to export point cloud!");
 		return -1;
 	}
 
-    LOG_INFO("Point cloud exported to '{}'", outputPlyFile);
+    LOG_INFO("Point cloud exported to '{}'", pointCloudExporter->bindTo<xpcf::IConfigurable>()->getProperty("path"));
 
     return 0;
 }

@@ -20,9 +20,10 @@
 	</module> 
 	
     <properties>
-		<configure component="SolARPointCloudExporterHapPLY" >
+        <configure component="SolARPointCloudExporterHapPLY" >
             <property name="dataFormat" type="string" value="ASCII"/>
-		</configure>
+            <property name="path" type="string" value="pointcloud.ply"/>
+        </configure>
     </properties>
 
 </xpcf-registry>

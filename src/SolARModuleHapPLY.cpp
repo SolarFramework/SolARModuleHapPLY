@@ -16,6 +16,8 @@
 
 #include "SolARModuleHapPLYAPI.h"
 #include "SolARPointCloudExporterHapPLY.h"
+#include "SolARMeshExporterHapPLY.h"
+#include "SolARMeshLoaderHapPLY.h"
 
 #include <iostream>
 
@@ -30,9 +32,19 @@ extern "C" XPCF_MODULEHOOKS_API xpcf::XPCFErrorCode XPCF_getComponent(const xpcf
 {
     xpcf::XPCFErrorCode errCode = xpcf::XPCFErrorCode::_FAIL;
     errCode = xpcf::tryCreateComponent<SolAR::MODULES::hapPLY::SolARPointCloudExporterHapPLY>(componentUUID,interfaceRef);
+    if (errCode != xpcf::XPCFErrorCode::_SUCCESS)
+    {
+        errCode = xpcf::tryCreateComponent<SolAR::MODULES::hapPLY::SolARMeshExporterHapPLY>(componentUUID,interfaceRef);
+    }
+    if (errCode != xpcf::XPCFErrorCode::_SUCCESS)
+    {
+        errCode = xpcf::tryCreateComponent<SolAR::MODULES::hapPLY::SolARMeshLoaderHapPLY>(componentUUID,interfaceRef);
+    }
     return errCode;
 }
 
 XPCF_BEGIN_COMPONENTS_DECLARATION
-
+XPCF_ADD_COMPONENT(SolAR::MODULES::hapPLY::SolARPointCloudExporterHapPLY)
+XPCF_ADD_COMPONENT(SolAR::MODULES::hapPLY::SolARMeshExporterHapPLY)
+XPCF_ADD_COMPONENT(SolAR::MODULES::hapPLY::SolARMeshLoaderHapPLY)
 XPCF_END_COMPONENTS_DECLARATION

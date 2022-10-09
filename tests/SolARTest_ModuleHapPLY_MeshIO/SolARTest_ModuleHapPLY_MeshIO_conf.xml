@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<xpcf-registry autoAlias="true">
+    <module uuid="8a6221ff-8c38-4c72-a655-73a2befc33b6" name="SolARModuleHapPLY" description="SolARModuleHapPLY" path="$XPCF_MODULE_ROOT/SolARBuild/SolARModuleHapPLY/1.0.0/lib/x86_64/shared">
+        <component uuid="331ee220-4630-11ed-b878-0242ac120002" name="SolARMeshExporterHapPLY" description="SolARMeshExporterHapPLY">
+                <interface uuid="125f2007-1bf9-421d-9367-fbdc1210d006" name="IComponentIntrospect" description="IComponentIntrospect"/>
+                <interface uuid="faf50760-462c-11ed-b878-0242ac120002" name="IMeshExporter" description="IMeshExporter"/>
+        </component>
+        <component uuid="394c2efc-4647-11ed-b878-0242ac120002" name="SolARMeshLoaderHapPLY" description="SolARMeshLoaderHapPLY">
+                <interface uuid="125f2007-1bf9-421d-9367-fbdc1210d006" name="IComponentIntrospect" description="IComponentIntrospect"/>
+                <interface uuid="315c7cd4-462d-11ed-b878-0242ac120002" name="IMeshLoader" description="IMeshLoader"/>
+        </component>
+    </module>
+    <properties>
+        <configure component="SolARMeshLoaderHapPLY" >
+            <property name="path" type="string" value="../../../../data/inputMesh.ply"/>
+        </configure>
+        <configure component="SolARMeshExporterHapPLY" >
+            <property name="dataFormat" type="string" value="ASCII"/>
+            <property name="path" type="string" value="../../../../data/outputMesh.ply"/>
+        </configure>
+    </properties>
+</xpcf-registry>

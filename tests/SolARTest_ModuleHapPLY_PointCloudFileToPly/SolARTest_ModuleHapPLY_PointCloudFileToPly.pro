@@ -82,17 +82,16 @@ INSTALLS += configfile
 
 linux {
   run_install.path = $${TARGETDEPLOYDIR}
-  run_install.files = $${PWD}/run.sh
+  run_install.files = $${PWD}/../run.sh
   CONFIG(release,debug|release) {
-    run_install.extra = cp $$files($${PWD}/runRelease.sh) $${PWD}/run.sh
+    run_install.extra = cp $$files($${PWD}/../runRelease.sh) $${PWD}/../run.sh
   }
   CONFIG(debug,debug|release) {
-    run_install.extra = cp $$files($${PWD}/runDebug.sh) $${PWD}/run.sh
+    run_install.extra = cp $$files($${PWD}/../runDebug.sh) $${PWD}/../run.sh
   }
   run_install.CONFIG += nostrip
   INSTALLS += run_install
 }
-
 
 DISTFILES += \
     packagedependencies.txt \

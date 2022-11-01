@@ -55,7 +55,7 @@ public:
     };
 
     SolARMeshExporterHapPLY();
-    ~SolARMeshExporterHapPLY() override = default;
+    ~SolARMeshExporterHapPLY() = default;
     void unloadComponent () override final;
 
     FrameworkReturnCode exportMesh(const SRef<SolAR::datastructure::Mesh> & Mesh) override;

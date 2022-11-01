@@ -31,6 +31,7 @@ SolARMeshExporterHapPLY::SolARMeshExporterHapPLY():xpcf::ConfigurableBase(xpcf::
     declareInterface<api::output::files::IMeshExporter>(this);
     declareProperty<std::string>("dataFormat" , m_dataFormat);
     declareProperty<std::string>("path" , m_path);
+    LOG_DEBUG("SolARMeshExporterHapPLY constructor");
 }
 
 FrameworkReturnCode SolARMeshExporterHapPLY::exportMesh(const SRef<SolAR::datastructure::Mesh> & mesh)

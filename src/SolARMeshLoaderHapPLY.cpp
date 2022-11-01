@@ -30,6 +30,7 @@ SolARMeshLoaderHapPLY::SolARMeshLoaderHapPLY():xpcf::ConfigurableBase(xpcf::toMa
 {
     declareInterface<api::input::files::IMeshLoader>(this);
     declareProperty<std::string>("path" , m_path);
+    LOG_DEBUG("SolARMeshLoaderHapPLY constructor");
 }
 
 FrameworkReturnCode SolARMeshLoaderHapPLY::load(SRef<SolAR::datastructure::Mesh> & mesh)

@@ -45,7 +45,7 @@ class SolARMeshLoaderHapPLY : public org::bcom::xpcf::ConfigurableBase, virtual 
 public:
 
     SolARMeshLoaderHapPLY();
-    ~SolARMeshLoaderHapPLY() override = default;
+    ~SolARMeshLoaderHapPLY() = default;
     void unloadComponent () override final;
 
     /// @brief Load a Mesh from a file

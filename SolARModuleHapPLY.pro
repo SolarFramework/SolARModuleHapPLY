@@ -67,6 +67,7 @@ INCLUDEPATH += interfaces
 include (SolARModuleHapPLY.pri)
 
 unix {
+    QMAKE_POST_LINK += "make install install_deps"
 }
 
 macx {

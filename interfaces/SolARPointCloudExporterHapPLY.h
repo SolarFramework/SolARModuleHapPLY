@@ -51,13 +51,9 @@ private:
 
 } // namespace SolAR::MODULES::hapPLY
 
-
-
-template <> struct org::bcom::xpcf::ComponentTraits<SolAR::MODULES::hapPLY::SolARPointCloudExporterHapPLY>
-{
-    static constexpr const char * UUID = "{4b5e0353-bc37-4bab-b0a3-89460e1752c6}";
-    static constexpr const char * NAME = "SolARPointCloudExporterHapPLY";
-    static constexpr const char * DESCRIPTION = "SolARPointCloudExporterHapPLY implements api::output::files::IPointCloudExporter interface";
-};
+XPCF_DEFINE_COMPONENT_TRAITS(SolAR::MODULES::hapPLY::SolARPointCloudExporterHapPLY,
+                             "4b5e0353-bc37-4bab-b0a3-89460e1752c6",
+                             "SolARPointCloudExporterHapPLY",
+                             "SolARPointCloudExporterHapPLY implements api::output::files::IPointCloudExporter interface")
 
 #endif // SOLARPOINTCLOUDEXPORTERHAPPLY_H

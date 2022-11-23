@@ -61,13 +61,9 @@ private:
 
 } // namespace SolAR::MODULES::hapPLY
 
-
-
-template <> struct org::bcom::xpcf::ComponentTraits<SolAR::MODULES::hapPLY::SolARMeshLoaderHapPLY>
-{
-    static constexpr const char * UUID = "{394c2efc-4647-11ed-b878-0242ac120002}";
-    static constexpr const char * NAME = "SolARMeshLoaderHapPLY";
-    static constexpr const char * DESCRIPTION = "SolARMeshLoaderHapPLY implements api::output::files::IMeshLoader interface";
-};
+XPCF_DEFINE_COMPONENT_TRAITS(SolAR::MODULES::hapPLY::SolARMeshLoaderHapPLY,
+                             "394c2efc-4647-11ed-b878-0242ac120002",
+                             "SolARMeshLoaderHapPLY",
+                             "SolARMeshLoaderHapPLY implements api::output::files::IMeshLoader interface")
 
 #endif // SOLARMESHLOADERHAPPLY_H

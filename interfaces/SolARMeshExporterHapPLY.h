@@ -69,13 +69,9 @@ private:
 
 } // namespace SolAR::MODULES::hapPLY
 
-
-
-template <> struct org::bcom::xpcf::ComponentTraits<SolAR::MODULES::hapPLY::SolARMeshExporterHapPLY>
-{
-    static constexpr const char * UUID = "{331ee220-4630-11ed-b878-0242ac120002}";
-    static constexpr const char * NAME = "SolARMeshExporterHapPLY";
-    static constexpr const char * DESCRIPTION = "SolARMeshExporterHapPLY implements api::output::files::IMeshExporter interface";
-};
+XPCF_DEFINE_COMPONENT_TRAITS(SolAR::MODULES::hapPLY::SolARMeshExporterHapPLY,
+                             "331ee220-4630-11ed-b878-0242ac120002",
+                             "SolARMeshExporterHapPLY",
+                             "SolARMeshExporterHapPLY implements api::output::files::IMeshExporter interface")
 
 #endif // SOLARMESHEXPORTERHAPPLY_H

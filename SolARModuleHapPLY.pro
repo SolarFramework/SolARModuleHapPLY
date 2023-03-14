@@ -23,44 +23,25 @@ with_qtvs {
 CONFIG += c++1z
 CONFIG += shared
 
-staticlib {
-    DEPENDENCIESCONFIG = staticlib
-    REMAKEN_PKGSUBDIR=static
-} else {
-    DEPENDENCIESCONFIG = sharedlib
-    REMAKEN_PKGSUBDIR=shared
-}
-
 CONFIG(debug,debug|release) {
     DEFINES += _DEBUG=1
     DEFINES += DEBUG=1
-    REMAKEN_PKGSUBDIR=$${REMAKEN_PKGSUBDIR}/debug
 }
 
 CONFIG(release,debug|release) {
+    DEFINES += _NDEBUG=1
     DEFINES += NDEBUG=1
-    REMAKEN_PKGSUBDIR=$${REMAKEN_PKGSUBDIR}/release
-}
-
-package_remaken {
-    message("Preparing remaken package installation in $${REMAKEN_PKGSUBDIR}")
-    INSTALLSUBDIR=$${REMAKEN_PKGSUBDIR}
 }
 
 include(findremakenrules.pri)
 
-DEPENDENCIESCONFIG = sharedlib
-DEPENDENCIESCONFIG += install_recurse
+DEPENDENCIESCONFIG = static install_recurse
 
 ## Configuration for Visual Studio to install binaries and dependencies. Work also for QT Creator by replacing QMAKE_INSTALL
 PROJECTCONFIG = QTVS
 
 #NOTE : CONFIG as staticlib or sharedlib, DEPENDENCIESCONFIG as staticlib or sharedlib and PROJECTDEPLOYDIR MUST BE DEFINED BEFORE templatelibbundle.pri inclusion
 include ($${QMAKE_REMAKEN_RULES_ROOT}/templatelibconfig.pri)
-
-
-DEFINES += BOOST_ALL_NO_LIB
-DEFINES += BOOST_ALL_DYN_LINK
 
 INCLUDEPATH += interfaces
 

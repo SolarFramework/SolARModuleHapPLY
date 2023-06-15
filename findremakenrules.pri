@@ -1,5 +1,21 @@
 # Author(s) : Loic Touraine, Stephane Leduc
 
+android {
+    # unix path
+    USERHOMEFOLDER = $$clean_path($$(HOME))
+    isEmpty(USERHOMEFOLDER) {
+        # windows path
+        USERHOMEFOLDER = $$clean_path($$(USERPROFILE))
+        isEmpty(USERHOMEFOLDER) {
+            USERHOMEFOLDER = $$clean_path($$(HOMEDRIVE)$$(HOMEPATH))
+        }
+    }
+}
+
+unix:!android {
+    USERHOMEFOLDER = $$clean_path($$(HOME))
+}
+
 win32 {
     USERHOMEFOLDER = $$clean_path($$(USERPROFILE))
     isEmpty(USERHOMEFOLDER) {
@@ -16,7 +32,7 @@ else {
         QMAKE_REMAKEN_RULES_ROOT = $$clean_path($$(REMAKEN_RULES_ROOT)/qmake)
     }
     else {
-        QMAKE_REMAKEN_RULES_ROOT = $${USERHOMEFOLDER}/.remaken/rules/qmake
+        QMAKE_REMAKEN_RULES_ROOT=$${USERHOMEFOLDER}/.remaken/rules/qmake
     }
 }
 
